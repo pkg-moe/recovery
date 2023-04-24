@@ -1,4 +1,4 @@
-module recovery
+module pkg.moe/pkg/recovery
 
 go 1.20
 
