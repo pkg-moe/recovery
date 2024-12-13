@@ -16,7 +16,7 @@ func RecoverPanic(errFormat string, mailSend ...bool) {
 		} else {
 			errStr = fmt.Sprintf(errFormat, err)
 		}
-		logger.Get().Error(errStr)
+		logger.Get().Error(errStr + string(debug.Stack()))
 
 		if len(mailSend) == 0 || mailSend[0] != false {
 			go logger.SendMail(errStr + "\r\n\r\n" + string(debug.Stack())) // nolint: errcheck
